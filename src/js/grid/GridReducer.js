@@ -1,3 +1,4 @@
+import gridUtils from "./GridUtils";
 
 var gridReducer = function(state, action){
     if (state === undefined) {
@@ -13,24 +14,11 @@ var gridReducer = function(state, action){
           return { 
               rows: action.rows,
               columns: action.columns,
-              grid: emptyGrid()
+              grid: gridUtils.emptyGrid(action.rows, action.columns)
           };
         default:
           return state;
     }
-}
-
-var emptyGrid = function(numRows, numColumns){
-  var grid = [];
-  var row;
-
-  for(var i = 0; i < numRows; i++){
-    row = [];
-    for(var j = 0; j < numColumns; j++){
-      row.push(0);
-    }
-    grid.push(row);
-  }
 }
 
 export default gridReducer;
