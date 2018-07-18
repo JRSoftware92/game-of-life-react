@@ -1,6 +1,6 @@
 import gridUtils from "./GridUtils";
 
-var gridReducer = function(state, action){
+const gridReducer = function(state, action){
     if (state === undefined) {
         return { 
             rows: 0,

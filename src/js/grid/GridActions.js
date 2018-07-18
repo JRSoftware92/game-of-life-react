@@ -1,5 +1,5 @@
 
-var randomizeGrid = function(numRows, numColumns){
+const randomizeGrid = function(numRows, numColumns){
     return {
         type: "RANDOM",
         width: numRows,
@@ -7,8 +7,17 @@ var randomizeGrid = function(numRows, numColumns){
     }
 }
 
+const clearGrid = function(numRows, numColumns){
+    return {
+        type: "CLEAR",
+        width: numRows,
+        height: numColumns
+    }
+}
+
 const gridActions = {
-    randomizeGrid: randomizeGrid
+    randomizeGrid: randomizeGrid,
+    clearGrid: clearGrid
 }
 
 export default gridActions;

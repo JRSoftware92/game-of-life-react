@@ -1,5 +1,5 @@
 
-var emptyGrid = function(numRows, numColumns){
+const emptyGrid = function(numRows, numColumns){
     var grid = [];
     var row;
   
@@ -14,7 +14,7 @@ var emptyGrid = function(numRows, numColumns){
     return grid;
 }
 
-var randomGrid = function(numRows, numColumns){
+const randomGrid = function(numRows, numColumns){
     var grid = [];
     var row;
   

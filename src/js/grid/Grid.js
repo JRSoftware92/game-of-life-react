@@ -15,9 +15,9 @@ class Grid extends Component {
     }
 
     render() {
-        var dataGrid = this.props.grid;
-        var numRows = this.props.rows;
-        var numColumns = this.props.columns;
+        var dataGrid = this.state.grid;
+        var numRows = this.state.rows;
+        var numColumns = this.state.columns;
 
         if(!dataGrid){
             dataGrid = gridUtils.emptyGrid(numRows, numColumns);

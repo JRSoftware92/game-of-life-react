@@ -6,7 +6,7 @@ class Game extends Component {
     render() {
       return (
         <div id="game-content">
-          <GridContainer></GridContainer>
+          <GridContainer gridWidth="4" gridHeight="4" />
         </div>
       );
     }
