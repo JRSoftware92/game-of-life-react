@@ -4,6 +4,16 @@ import gridUtils from "./GridUtils";
 import "../../css/grid.css";
 
 class Grid extends Component {
+    constructor(props){
+        super(props);
+
+        this.state = {
+            height: props.height,
+            width: props.width,
+            grid: props.grid ? props.grid : gridUtils.emptyGrid(props.width, props.height)
+        }
+    }
+
     render() {
         var dataGrid = this.props.grid;
         var numRows = this.props.rows;

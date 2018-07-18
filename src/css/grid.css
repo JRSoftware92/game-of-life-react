@@ -1,3 +1,11 @@
+.black {
+    background-color: #000;
+}
+
+.white {
+    background-color: #FFF;
+}
+
 .grid {
     margin-left: auto;
     margin-right: auto;
@@ -17,10 +25,12 @@
     margin: 1px;
 }
 
-.black {
-    background-color: #000;
+.grid-controls {
+    padding: 8px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.white {
-    background-color: #FFF;
+.grid-controls label, input {
+    margin: 4px;
 }

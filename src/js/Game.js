@@ -1,17 +1,15 @@
 import React, { Component } from "react";
 
-import Grid from "./grid/Grid";
-import gridUtils from "./grid/GridUtils"
+import GridContainer from "./grid/GridContainer";
 
 class Game extends Component {
     render() {
       return (
         <div id="game-content">
-          <Grid rows="4" columns="4" grid={gridUtils.randomGrid(4, 4)}>
-          </Grid>
+          <GridContainer></GridContainer>
         </div>
       );
     }
   }
 
-  export default Game;
+export default Game;

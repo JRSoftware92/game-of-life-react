@@ -10,11 +10,11 @@ var gridReducer = function(state, action){
     }
      
     switch (action.type) {
-        case "RESET":
+        case "RANDOM":
           return { 
               rows: action.rows,
               columns: action.columns,
-              grid: gridUtils.emptyGrid(action.rows, action.columns)
+              grid: gridUtils.randomGrid(action.rows, action.columns)
           };
         default:
           return state;
