@@ -9,10 +9,6 @@
     display: table-row
 }
 
-.grid-tile {
-    display: table-cell;
-}
-
 .tile {
     display: table-cell;
     height: 24px;
@@ -22,9 +18,9 @@
 }
 
 .black {
-    color: #000;
+    background-color: #000;
 }
 
 .white {
-    color: #FFF;
+    background-color: #FFF;
 }

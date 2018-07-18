@@ -20,7 +20,6 @@ class Grid extends Component {
         for(var i = 0; i < numRows; i++){
             row = [];
             for(var j = 0; j < numColumns; j++){
-                // tile = dataGrid[i][j] ? <span className="grid-tile">&#9724;</span> : <span className="grid-tile">&#9723;</span>;
                 tile = dataGrid[i][j] ? <div className="tile black"></div> : <div className="tile white"></div>;
                 row.push(tile);
             }
