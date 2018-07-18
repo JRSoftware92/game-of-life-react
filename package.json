@@ -2,6 +2,8 @@
   "name": "game-of-life",
   "version": "0.1.0",
   "private": true,
+  "description": "Conway's Game of Life implemented using ReactJS",
+  "repository": "https://github.com/JRSoftware92/game-of-life-react.git",
   "dependencies": {
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
