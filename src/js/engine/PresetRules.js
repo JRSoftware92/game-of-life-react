@@ -48,6 +48,36 @@ export const Assimilation = {
     ]
 }
 
+export const Border = {
+    value: "border",
+    label: "Border",
+    survival: [10, 11, 12, 13, 14, 15, 16],
+    birth: [1, 2, 3, 4, 5, 6, 7, 8],
+    weights: [
+        [1, 1, 1], [1, 9, 1], [1, 1, 1]
+    ]
+}
+
+export const Career = {
+    value: "career",
+    label: "Career",
+    survival: [2, 3],
+    birth: [3],
+    weights: [
+        [1, 2, 1], [1, 0, 1], [1, 1, 1]
+    ]
+}
+
+export const Cloud54 = {
+    value: "cloud54",
+    label: "Cloud54",
+    survival: [2, 3, 9, 10, 19, 27],
+    birth: [3, 10, 27],
+    weights: [
+        [1, 1, 9], [1, 0, 9], [1, 9, 9]
+    ]
+}
+
 export const Coagulations = {
     value: "coagulations",
     label: "Coagulations",
@@ -65,6 +95,16 @@ export const Coral = {
     birth: [3],
     weights: [
         [1, 1, 1], [1, 0, 1], [1, 1, 1]
+    ]
+}
+
+export const CrossPorpoises = {
+    value: "crossPorpoises",
+    label: "Cross Porpoises",
+    survival: [2, 3, 6, 7, 8, 9, 10, 12, 13],
+    birth: [5],
+    weights: [
+        [1, 4, 1], [4, 0, 4], [1, 4, 0]
     ]
 }
 
@@ -88,6 +128,26 @@ export const Diamoeba = {
     ]
 }
 
+export const Dragon = {
+    value: "dragon",
+    label: "Dragon",
+    survival: [1, 2, 7, 8, 12, 15, 18, 20],
+    birth: [7, 11, 12, 13, 20],
+    weights: [
+        [5, 1, 5], [1, 0, 1], [5, 1, 5]
+    ]
+}
+
+export const Emergence = {
+    value: "emergence",
+    label: "Emergence",
+    survival: [2, 3, 4, 10, 11, 16, 17, 24, 25],
+    birth: [3, 4, 9, 24],
+    weights: [
+        [1, 8, 1], [1, 0, 1], [8, 8, 1]
+    ]
+}
+
 export const Flakes = {
     value: "flakes",
     label: "Flakes",
@@ -108,6 +168,16 @@ export const Gnarl = {
     ]
 }
 
+export const HGlass = {
+    value: "hGlass",
+    label: "HGlass",
+    survival: [1, 2, 3, 11, 21, 25, 29, 30, 31],
+    birth: [1, 2, 3, 11, 21, 25, 29, 30, 31],
+    weights: [
+        [0, 2, 0], [8, 1, 16], [0, 4, 0]
+    ]
+}
+
 export const HighLife = {
     value: "highLife",
     label: "High Life",
@@ -115,6 +185,16 @@ export const HighLife = {
     birth: [3, 6],
     weights: [
         [1, 1, 1], [1, 0, 1], [1, 1, 1]
+    ]
+}
+
+export const Linguini = {
+    value: "linguini",
+    label: "Linguini",
+    survival: [2, 3, 4, 9, 10, 11, 19, 20],
+    birth: [11, 18],
+    weights: [
+        [9, 1, 9], [1, 0, 1], [9, 1, 9]
     ]
 }
 
@@ -155,6 +235,26 @@ export const Move = {
     birth: [3, 6, 8],
     weights: [
         [1, 1, 1], [1, 0, 1], [1, 1, 1]
+    ]
+}
+
+export const Parity = {
+    value: "parity",
+    label: "Parity",
+    survival: [1, 3, 5],
+    birth: [1, 3, 5],
+    weights: [
+        [0, 1, 0], [1, 1, 1], [0, 1, 0]
+    ]
+}
+
+export const Pictures = {
+    value: "pictures",
+    label: "Pictures",
+    survival: [1, 2, 3],
+    birth: [2, 3, 4],
+    weights: [
+        [0, 1, 0], [1, 0, 1], [0, 1, 0]
     ]
 }
 
@@ -208,6 +308,16 @@ export const Stains = {
     ]
 }
 
+export const Starburst = {
+    value: "starburst",
+    label: "Starburst",
+    survival: [2, 4, 6],
+    birth: [4],
+    weights: [
+        [1, 2, 1], [2, 0, 2], [1, 2, 1]
+    ]
+}
+
 export const WalledCities = {
     value: "walledCities",
     label: "Walled Cities",
@@ -229,8 +339,8 @@ export const ZipperMakers = {
 }
 
 export const PresetRules = [
-    Conway, TwoByTwo, ThirtyFourLife, Amoeba, Assimilation, Coagulations, Coral, DayAndNight, Flakes, Gnarl, HighLife, LongLife,
-    Maze, Mazectric, Move, PseudoLife, Replicator, Seeds, Serviettes, Stains, WalledCities, ZipperMakers
+    Conway, TwoByTwo, ThirtyFourLife, Amoeba, Assimilation, Border, Cloud54, Coagulations, Coral, CrossPorpoises, DayAndNight, Dragon, Flakes, Gnarl, 
+    HighLife, Linguini, LongLife, Maze, Mazectric, Move, Parity, Pictures, PseudoLife, Replicator, Seeds, Serviettes, Stains, Starburst, WalledCities, ZipperMakers
 ];
 
 export default PresetRules;
