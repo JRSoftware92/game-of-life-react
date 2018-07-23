@@ -11,7 +11,7 @@ const mapStateToProps = function mapStateToProps(state) {
         height: state.height,
         density: state.density,
         grid: state.grid,
-        rules: state.rules
+        selectedRule: state.selectedRule
     };
 }
 

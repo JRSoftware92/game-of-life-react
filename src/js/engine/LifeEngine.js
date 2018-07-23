@@ -1,30 +1,30 @@
 
-export const runLifeEngine = function(grid, rules){
+export const runLifeEngine = function(grid, rule){
     var newGrid = []
 
     for(var i = 0; i < grid.length; i++){
         newGrid[i] = [];
         for(var j = 0; j < grid[i].length; j++){
-            newGrid[i][j] = getNewTileValue(j, i, grid, rules);
+            newGrid[i][j] = getNewTileValue(j, i, grid, rule);
         }
     }
 
     return newGrid;
 }
 
-var getNewTileValue = function(x, y, grid, rules){
+var getNewTileValue = function(x, y, grid, rule){
     var value = grid[y][x];
     var count = 0;
 
-    var survivalSet = rules.survival;
-    var birthSet = rules.birth;
+    var survivalSet = rule.survival;
+    var birthSet = rule.birth;
     
-    var rulesTable = rules.weights;
+    var ruleTable = rule.weights;
 
     var weight;
     var neighbor;
-    for(var i = 0; i < rulesTable.length; i++){
-        for(var j = 0; j < rulesTable[i].length; j++){
+    for(var i = 0; i < ruleTable.length; i++){
+        for(var j = 0; j < ruleTable[i].length; j++){
             var checkingX = x + j - 1;
             var checkingY = y + i - 1;
 
@@ -35,7 +35,7 @@ var getNewTileValue = function(x, y, grid, rules){
                 continue;
             }
 
-            weight = rulesTable[i][j];
+            weight = ruleTable[i][j];
             neighbor = grid[checkingY][checkingX];
 
             if(neighbor){

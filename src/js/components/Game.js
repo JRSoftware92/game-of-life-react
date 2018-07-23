@@ -2,6 +2,7 @@ import React, { Component } from "react";
 
 import GridContainer from "../containers/GridContainer"
 import GridControlsContainer from "../containers/GridControlsContainer"
+import RuleControlsContainer from "../containers/RuleControlsContainer"
 
 class Game extends Component {
     render() {
@@ -9,6 +10,7 @@ class Game extends Component {
         <div id="game-content">
           <GridContainer/>
           <GridControlsContainer/>
+          <RuleControlsContainer/>
         </div>
       );
     }

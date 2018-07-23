@@ -6,8 +6,7 @@ import { Provider } from "react-redux";
 
 import gridReducer from "./js/reducers/GridReducer";
 import gridUtils from "./js/utils/GridUtils";
-import LifeRules from "./js/engine/LifeRules";
-import PresetRules, { Maze } from "./js/engine/PresetRules";
+import { Conway } from "./js/engine/PresetRules";
 
 import App from './js/components/App';
 
@@ -20,7 +19,7 @@ const initialGridState = {
     width: 4,
     density: 50,
     grid: gridUtils.emptyGrid(4, 4),
-    rules: Maze
+    selectedRule: Conway
 }
 
 // Store

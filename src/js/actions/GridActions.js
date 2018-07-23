@@ -1,7 +1,8 @@
 export const RANDOM = 'RANDOM';
 export const CLEAR = 'CLEAR';
-export const TOGGLE_TILE = 'TOGGLE_TILE'
+export const TOGGLE_TILE = 'TOGGLE_TILE';
 export const RUN = 'RUN';
+export const SELECT_RULE = 'SELECT_RULE';
 
 export const randomizeGrid = function(numRows, numColumns, density){
     return {
@@ -31,5 +32,12 @@ export const toggleTile = function(x, y){
 export const runLifeIteration = function(){
     return {
         type: RUN
+    }
+}
+
+export const selectRule = function(rule){
+    return {
+        type: SELECT_RULE,
+        selectedRule: rule
     }
 }

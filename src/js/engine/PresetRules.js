@@ -1,5 +1,6 @@
 export const Conway = {
-    name: "Conway",
+    value: "conway",
+    label: "Conway",
     survival: [2, 3],
     birth: [3],
     weights: [
@@ -8,7 +9,8 @@ export const Conway = {
 }
 
 export const TwoByTwo = {
-    name: "2x2",
+    value: "2x2",
+    label: "2x2",
     survival: [1, 2, 5],
     birth: [3, 6],
     weights: [
@@ -17,7 +19,8 @@ export const TwoByTwo = {
 }
 
 export const ThirtyFourLife = {
-    name: "34 Life",
+    value: "34Life",
+    label: "34 Life",
     survival: [3, 4],
     birth: [3, 4],
     weights: [
@@ -26,7 +29,8 @@ export const ThirtyFourLife = {
 }
 
 export const Amoeba = {
-    name: "Amoeba",
+    value: "amoeba",
+    label: "Amoeba",
     survival: [1, 3, 5, 8],
     birth: [3, 5, 7],
     weights: [
@@ -35,7 +39,8 @@ export const Amoeba = {
 }
 
 export const Assimilation = {
-    name: "Assimilation",
+    value: "assimilation",
+    label: "Assimilation",
     survival: [4, 5, 6, 7],
     birth: [3, 4, 5],
     weights: [
@@ -44,7 +49,8 @@ export const Assimilation = {
 }
 
 export const Coagulations = {
-    name: "Coagulations",
+    value: "coagulations",
+    label: "Coagulations",
     survival: [2, 3, 5, 6, 7, 8],
     birth: [3, 7, 8],
     weights: [
@@ -53,7 +59,8 @@ export const Coagulations = {
 }
 
 export const Coral = {
-    name: "Coral",
+    value: "coral",
+    label: "Coral",
     survival: [4, 5, 6, 7, 8],
     birth: [3],
     weights: [
@@ -62,7 +69,8 @@ export const Coral = {
 }
 
 export const DayAndNight = {
-    name: "Day & Night",
+    value: "dayAndNight",
+    label: "Day & Night",
     survival: [3, 4, 6, 7, 8],
     birth: [3, 6, 7, 8],
     weights: [
@@ -71,7 +79,8 @@ export const DayAndNight = {
 }
 
 export const Diamoeba = {
-    name: "Diamoeba",
+    value: "diamoeba",
+    label: "Diamoeba",
     survival: [5, 6, 7, 8],
     birth: [3, 5, 6, 7, 8],
     weights: [
@@ -80,7 +89,8 @@ export const Diamoeba = {
 }
 
 export const Flakes = {
-    name: "Flakes",
+    value: "flakes",
+    label: "Flakes",
     survival: [0, 1, 2, 3, 4, 5, 6, 7, 8],
     birth: [3],
     weights: [
@@ -89,7 +99,8 @@ export const Flakes = {
 }
 
 export const Gnarl = {
-    name: "Gnarl",
+    value: "gnarl",
+    label: "Gnarl",
     survival: [1],
     birth: [1],
     weights: [
@@ -98,7 +109,8 @@ export const Gnarl = {
 }
 
 export const HighLife = {
-    name: "High Life",
+    value: "highLife",
+    label: "High Life",
     survival: [2, 3],
     birth: [3, 6],
     weights: [
@@ -107,7 +119,8 @@ export const HighLife = {
 }
 
 export const LongLife = {
-    name: "Long Life",
+    value: "longLife",
+    label: "Long Life",
     survival: [5],
     birth: [3, 4, 5],
     weights: [
@@ -116,7 +129,8 @@ export const LongLife = {
 }
 
 export const Maze = {
-    name: "Maze",
+    value: "maze",
+    label: "Maze",
     survival: [1, 2, 3, 4, 5],
     birth: [3],
     weights: [
@@ -125,7 +139,8 @@ export const Maze = {
 }
 
 export const Mazectric = {
-    name: "Mazectric",
+    value: "mazectric",
+    label: "Mazectric",
     survival: [1, 2, 3, 4],
     birth: [3],
     weights: [
@@ -134,7 +149,8 @@ export const Mazectric = {
 }
 
 export const Serviettes = {
-    name: "Serviettes",
+    value: "serviettes",
+    label: "Serviettes",
     survival: [],
     birth: [2, 3, 4],
     weights: [
@@ -143,7 +159,8 @@ export const Serviettes = {
 }
 
 export const WalledCities = {
-    name: "Walled Cities",
+    value: "walledCities",
+    label: "Walled Cities",
     survival: [],
     birth: [2, 3, 4],
     weights: [

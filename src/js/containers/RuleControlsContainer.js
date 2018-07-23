@@ -1,7 +1,7 @@
 import { connect } from "react-redux";
 import {bindActionCreators} from 'redux';   
 
-import Grid from "../components/Grid";
+import RuleControls from "../components/RuleControls";
 import * as GridActions from "../actions/GridActions";
 
 // Map Redux state to component props
@@ -26,6 +26,6 @@ const mapDispatchToProps = function(dispatch){
 var connectedComponent = connect(
     mapStateToProps,
     mapDispatchToProps
-)(Grid);
+)(RuleControls);
 
 export default connectedComponent;
