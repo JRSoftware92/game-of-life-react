@@ -28,10 +28,10 @@ var getNewTileValue = function(x, y, grid, rules){
             var checkingX = x + j - 1;
             var checkingY = y + i - 1;
 
-            if(checkingX < 0 || checkingX >= rulesTable[i].length){
+            if(checkingX < 0 || checkingX >= grid[i].length){
                 continue;
             }
-            else if(checkingY < 0 || checkingY >= rulesTable.length){
+            else if(checkingY < 0 || checkingY >= grid.length){
                 continue;
             }
 
