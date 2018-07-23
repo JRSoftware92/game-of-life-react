@@ -1,5 +1,5 @@
 import {
-    RUN,
+    NEXT,
     RANDOM,
     CLEAR,
     TOGGLE_TILE,
@@ -50,7 +50,7 @@ const gridReducer = function(state, action){
             grid: newGrid,
             selectedRule: state.selectedRule
           };
-        case RUN:
+        case NEXT:
           newGrid = LifeEngine.run(state.grid, state.selectedRule);
 
           return {

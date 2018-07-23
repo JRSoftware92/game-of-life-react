@@ -34,3 +34,14 @@
 .grid-controls label, input {
     margin: 4px;
 }
+
+.rule-select {
+    margin: 0 auto;
+    display: inline-block;
+}
+
+.rule-select-container {
+    max-width: 20%;
+    margin-left: auto;
+    margin-right: auto;
+}

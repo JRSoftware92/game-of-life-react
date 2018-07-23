@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import "../../css/grid.css";
 
 class GridControls extends Component {
+
     constructor(props){
         super(props);
 
@@ -20,7 +21,9 @@ class GridControls extends Component {
         this.handleWidthChange = this.handleWidthChange.bind(this);
         this.handleDensityChange = this.handleDensityChange.bind(this);
 
-        this.onRunClicked = this.onRunClicked.bind(this);
+        this.onStartClicked = this.onStartClicked.bind(this);
+        this.onStopClicked = this.onStopClicked.bind(this);
+        this.onNextClicked = this.onNextClicked.bind(this);
         this.onRandomizeClicked = this.onRandomizeClicked.bind(this);        
         this.onClearClicked = this.onClearClicked.bind(this);
     }
@@ -55,7 +58,15 @@ class GridControls extends Component {
         })
     }
 
-    onRunClicked(e){
+    onStartClicked(e){
+        this.props.actions.startRunningLife();
+    }
+
+    onStopClicked(e){
+        this.props.actions.stopRunningLife();
+    }
+
+    onNextClicked(e){
         this.props.actions.runLifeIteration()
     }
 
@@ -70,19 +81,22 @@ class GridControls extends Component {
     render() {
         return (
             <div className="grid-controls">
+                <div className="grid-buttons">
+                    <button id="start" onClick={this.onStartClicked}>Start</button>
+                    <button id="stop" onClick={this.onStopClicked}>Stop</button>
+                    <button id="next" onClick={this.onNextClicked}>Next</button>
+                    <button id="random" onClick={this.onRandomizeClicked}>Randomize</button>
+                    <button id="clear" onClick={this.onClearClicked}>Clear</button>
+                </div>
                 <div className="grid-size">
                     <label>Height</label>
                     <input id="grid-height" type="text" size="2" value={this.state.height} onChange={ this.handleHeightChange }/>
                     <label>Width</label>
                     <input id="grid-width" type="text" size="2" value={this.state.width} onChange={ this.handleWidthChange }/>
+                    <br/>
                     <label>Random Density (%)</label>
                     <input id="grid-density" type="text" size="3" value={this.state.density} onChange={ this.handleDensityChange }/>
                 </div> 
-                <div className="grid-buttons">
-                    <button id="run" onClick={this.onRunClicked}>Run</button>
-                    <button id="random" onClick={this.onRandomizeClicked}>Randomize</button>
-                    <button id="clear" onClick={this.onClearClicked}>Clear</button>
-                </div>
             </div>
         );
     }

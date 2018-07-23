@@ -148,11 +148,61 @@ export const Mazectric = {
     ]
 }
 
+export const Move = {
+    value: "move",
+    label: "Move",
+    survival: [2, 4, 5],
+    birth: [3, 6, 8],
+    weights: [
+        [1, 1, 1], [1, 0, 1], [1, 1, 1]
+    ]
+}
+
+export const PseudoLife = {
+    value: "pseudoLife",
+    label: "Pseudo Life",
+    survival: [2, 3, 8],
+    birth: [3, 5, 7],
+    weights: [
+        [1, 1, 1], [1, 0, 1], [1, 1, 1]
+    ]
+}
+
+export const Replicator = {
+    value: "replicator",
+    label: "Replicator",
+    survival: [1, 3, 5, 7],
+    birth: [1, 3, 5, 7],
+    weights: [
+        [1, 1, 1], [1, 0, 1], [1, 1, 1]
+    ]
+}
+
+export const Seeds = {
+    value: "seeds",
+    label: "Seeds",
+    survival: [],
+    birth: [2],
+    weights: [
+        [1, 1, 1], [1, 0, 1], [1, 1, 1]
+    ]
+}
+
 export const Serviettes = {
     value: "serviettes",
     label: "Serviettes",
     survival: [],
     birth: [2, 3, 4],
+    weights: [
+        [1, 1, 1], [1, 0, 1], [1, 1, 1]
+    ]
+}
+
+export const Stains = {
+    value: "stains",
+    label: "Stains",
+    survival: [2, 3, 5, 6, 7, 8],
+    birth: [3, 6, 7, 8],
     weights: [
         [1, 1, 1], [1, 0, 1], [1, 1, 1]
     ]
@@ -168,9 +218,19 @@ export const WalledCities = {
     ]
 }
 
+export const ZipperMakers = {
+    value: "zipperMakers",
+    label: "Zipper Makers",
+    survival: [2, 3, 6, 7, 8, 9, 10, 12, 13],
+    birth: [5],
+    weights: [
+        [1, 0, 1], [0, 0, 4], [1, 4, 1]
+    ]
+}
+
 export const PresetRules = [
     Conway, TwoByTwo, ThirtyFourLife, Amoeba, Assimilation, Coagulations, Coral, DayAndNight, Flakes, Gnarl, HighLife, LongLife,
-    Maze, Mazectric, Serviettes, WalledCities
+    Maze, Mazectric, Move, PseudoLife, Replicator, Seeds, Serviettes, Stains, WalledCities, ZipperMakers
 ];
 
 export default PresetRules;
