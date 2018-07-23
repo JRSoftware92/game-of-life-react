@@ -1,10 +1,21 @@
 import React, { Component } from "react";
 
 import gridUtils from "../utils/GridUtils";
+import Tile from "../components/Tile"
 
 import "../../css/grid.css";
 
 class Grid extends Component {
+    constructor(props){
+        super(props);
+
+        this.handleTileClick = this.handleTileClick.bind(this);
+    }
+
+    handleTileClick(x, y){
+        this.props.actions.toggleTile(x, y)
+    }
+
     render() {
         var numRows = this.props.height;
         var numColumns = this.props.width;
@@ -18,9 +29,9 @@ class Grid extends Component {
         for(var i = 0; i < numRows; i++){
             row = [];
             for(var j = 0; j < numColumns; j++){
-                tile = <div key={31 * j + i}
-                            className={'tile ' + (dataGrid[i][j]? 'black' : 'white')}>
-                       </div>
+                tile = <Tile key={31 * j + i} x={j} y={i}
+                            filled={dataGrid[i][j] ? true : false}
+                            onTileClicked={this.handleTileClick}/>
                 row.push(tile);
             }
             rows.push(<div key={i} className="grid-row">{row}</div>);
