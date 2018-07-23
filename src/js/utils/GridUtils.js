@@ -14,7 +14,7 @@ const emptyGrid = function(numRows, numColumns){
     return grid;
 }
 
-const randomGrid = function(numRows, numColumns){
+const randomGrid = function(numRows, numColumns, density){
     var grid = [];
     var row;
   
@@ -22,7 +22,7 @@ const randomGrid = function(numRows, numColumns){
     for(var i = 0; i < numRows; i++){
       row = [];
       for(var j = 0; j < numColumns; j++){
-        value = Math.floor(Math.random() * 2)       //Random Value (0 or 1)
+        value = Math.random() * 100 <= density ? 1 : 0;
         row.push(value);
       }
       grid.push(row);

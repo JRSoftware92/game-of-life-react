@@ -6,17 +6,17 @@ import * as GridActions from "../actions/GridActions";
 
 // Map Redux state to component props
 const mapStateToProps = function mapStateToProps(state) {
-    console.log("Mapping Grid State to Properties");
     return {
         width: state.width,
         height: state.height,
-        grid: state.grid
+        density: state.density,
+        grid: state.grid,
+        rules: state.rules
     };
 }
 
 // Map Redux actions to component props
 const mapDispatchToProps = function(dispatch){
-    console.log("Mapping Grid Dispatch to Properties")
     return {
         actions: bindActionCreators(GridActions, dispatch)
     }
