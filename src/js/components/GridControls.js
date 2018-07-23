@@ -16,6 +16,8 @@ class GridControls extends Component {
 
         this.handleHeightChange = this.handleHeightChange.bind(this);
         this.handleWidthChange = this.handleWidthChange.bind(this);
+        this.onRandomizeClicked = this.onRandomizeClicked.bind(this);        
+        this.onClearClicked = this.onClearClicked.bind(this);
     }
 
     handleHeightChange(e){
@@ -34,6 +36,14 @@ class GridControls extends Component {
         })
     }
 
+    onRandomizeClicked(e){
+        this.props.actions.randomizeGrid(this.state.width, this.state.height)
+    }
+
+    onClearClicked(e){
+        this.props.actions.clearGrid(this.state.width, this.state.height)
+    }
+
     render() {
         return (
             <div className="grid-controls">
@@ -45,8 +55,8 @@ class GridControls extends Component {
                     <input id="grid-width" type="text" size="2" value={this.state.width} onChange={ this.handleWidthChange }/>
                 </div> 
                 <div className="grid-buttons">
-                    <button id="random" onClick={()=>this.props.randomizeGrid(this.state.width, this.state.height)}>Randomize</button>
-                    <button id="clear" onClick={()=>this.props.clearGrid(this.state.width, this.state.height)}>Clear</button>
+                    <button id="random" onClick={this.onRandomizeClicked}>Randomize</button>
+                    <button id="clear" onClick={this.onClearClicked}>Clear</button>
                 </div>
             </div>
         );

@@ -5,16 +5,16 @@ export const TOGGLE_TILE = 'TOGGLE_TILE'
 export const randomizeGrid = function(numRows, numColumns){
     return {
         type: RANDOM,
-        rows: numRows,
-        columns: numColumns
+        height: numRows,
+        width: numColumns
     }
 }
 
 export const clearGrid = function(numRows, numColumns){
     return {
         type: CLEAR,
-        rows: numRows,
-        columns: numColumns
+        height: numRows,
+        width: numColumns
     }
 }
 

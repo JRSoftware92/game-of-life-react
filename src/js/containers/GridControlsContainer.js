@@ -6,6 +6,7 @@ import * as GridActions from "../actions/GridActions";
 
 // Map Redux state to component props
 const mapStateToProps = function mapStateToProps(state) {
+    console.log("Mapping Control State to Properties");
     return {
         width: state.width,
         height: state.height,
@@ -14,9 +15,12 @@ const mapStateToProps = function mapStateToProps(state) {
 }
 
 // Map Redux actions to component props
-const mapDispatchToProps = (dispatch) => ({
-    actions: bindActionCreators(GridActions, dispatch)
-});
+const mapDispatchToProps = function(dispatch){
+    console.log("Mapping Control Dispatch to Properties")
+    return {
+        actions: bindActionCreators(GridActions, dispatch)
+    }
+};
 
 // The HOC (Higher Order Component)
 var connectedComponent = connect(

@@ -7,10 +7,11 @@ import {
 import gridUtils from "../utils/GridUtils";
 
 const gridReducer = function(state, action){
+  console.log("Grid Reducer taking place: " + action.type);
     if (state === undefined) {
         return { 
-            rows: 0,
-            columns: 0,
+            height: 0,
+            width: 0,
             grid: []
         };
     }
@@ -18,23 +19,23 @@ const gridReducer = function(state, action){
     switch (action.type) {
         case RANDOM:
           return { 
-              rows: action.rows,
-              columns: action.columns,
-              grid: gridUtils.randomGrid(action.rows, action.columns)
+              height: action.height,
+              width: action.width,
+              grid: gridUtils.randomGrid(action.height, action.width)
           };
         case CLEAR:
           return {
-            rows: action.rows,
-            columns: action.columns,
-            grid: gridUtils.emptyGrid(action.rows, action.columns)
+            height: action.height,
+            width: action.width,
+            grid: gridUtils.emptyGrid(action.height, action.width)
           };
         case TOGGLE_TILE:
           var newGrid = state.grid.slice();
           newGrid[action.x][action.y] = state.grid[action.x][action.y] ? 0 : 1;
 
           return {
-            rows: state.rows,
-            columns: state.columns, 
+            height: state.height,
+            width: state.width, 
             grid: newGrid
           };
         default:
