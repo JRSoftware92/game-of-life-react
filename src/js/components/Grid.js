@@ -8,9 +8,9 @@ import "../../css/grid.css";
 class Grid extends Component {
     render() {
         console.log("Rendering Grid");
-        const numRows = this.props.height;
-        const numColumns = this.props.width;
-        const dataGrid = this.props.grid || !this.props.grid.length ? this.props.grid : gridUtils.emptyGrid(numRows, numColumns);
+        var numRows = this.props.height;
+        var numColumns = this.props.width;
+        var dataGrid = this.props.grid || !this.props.grid.length ? this.props.grid : gridUtils.emptyGrid(numRows, numColumns);
         
         var rows = [];
 
