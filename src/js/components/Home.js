@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 
+import "../../css/Home.css"
+
 class Home extends Component {
     render() {
       return (
@@ -11,14 +13,14 @@ class Home extends Component {
           One interacts with the Game of Life by creating an initial configuration and observing how it evolves, or, for advanced players, 
           by creating patterns with particular properties.</p>
 
-          <div id="references">
+          <div>
             <h3>References</h3>
-            <ol>
+            <ol id="references">
               <li>
-                <p>
+                <p><i>
                   Gardner, Martin (October 1970). "Mathematical Games – The fantastic combinations of John Conway's new solitaire game "life"". Scientific American. 
                   223: 120–123. ISBN 0-89454-001-7. Archived from the original on 2009-06-03. Retrieved 2011-06-26.
-                </p>
+                </i></p>
               </li>
             </ol>
           </div>

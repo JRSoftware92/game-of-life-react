@@ -5,13 +5,11 @@ import {
   HashRouter
 } from "react-router-dom";
 
-import logo from '../assets/logo.svg';
-import '../css/App.css';
+import logo from '../../assets/logo.svg';
+import '../../css/App.css';
 
 import Home from './Home';
-import StartGame from './StartGame';
 import Game from './Game';
-
 
 class App extends Component {
   render() {
@@ -24,14 +22,12 @@ class App extends Component {
 
           <ul className="header-menu">
             <li><NavLink exact to="/">Home</NavLink></li>
-            <li><NavLink to="/start">Start Game</NavLink></li>
             <li><NavLink to="/game">Game</NavLink></li>
           </ul>
         </header>
 
         <div className="content">
             <Route exact path="/" component={Home}/>
-            <Route path="/start" component={StartGame}/>
             <Route path="/game" component={Game}/>
         </div>
       </div>
