@@ -16,8 +16,8 @@ var getNewTileValue = function(x, y, grid, rules){
     var value = grid[y][x];
     var count = 0;
 
-    var minPop = rules.minPop;
-    var maxPop = rules.maxPop;
+    var survivalSet = rules.survival;
+    var birthSet = rules.birth;
     
     var rulesTable = rules.weights;
 
@@ -44,14 +44,14 @@ var getNewTileValue = function(x, y, grid, rules){
         }
     }
 
-    if(count < minPop || count > maxPop){
-        return 0;
-    }
-    else if(count == maxPop){
+    if(birthSet.indexOf(count) > -1){
         return 1;
     }
-    else {
+    else if(survivalSet.indexOf(count) > -1){
         return value;
+    }
+    else{
+        return 0;
     }
 }
 
