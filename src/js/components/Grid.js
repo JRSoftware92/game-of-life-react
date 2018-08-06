@@ -25,7 +25,6 @@ class Grid extends Component {
 
         var row;
         var tile;
-        var action;
         for(var i = 0; i < numRows; i++){
             row = [];
             for(var j = 0; j < numColumns; j++){

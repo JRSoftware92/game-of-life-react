@@ -6,13 +6,7 @@ import * as GridActions from "../actions/GridActions";
 
 // Map Redux state to component props
 const mapStateToProps = function mapStateToProps(state) {
-    return {
-        width: state.width,
-        height: state.height,
-        density: state.density,
-        grid: state.grid,
-        selectedRule: state.selectedRule
-    };
+    return JSON.parse(JSON.stringify(state));
 }
 
 // Map Redux actions to component props
