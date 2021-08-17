@@ -17,9 +17,13 @@ const mapStateToProps = ({
 const mapDispatchToProps = (dispatch) => ({
     actions: {
         randomizeGrid: (numRows, numColumns, density) => {
+            clearInterval(timer);
+            dispatch(GridActions.stopRunningLife());
             dispatch(GridActions.randomizeGrid(numRows, numColumns, density))
         },
         clearGrid: (numRows, numColumns) => {
+            clearInterval(timer);
+            dispatch(GridActions.stopRunningLife());
             dispatch(GridActions.clearGrid(numRows, numColumns))
         },
         runLifeIteration: () => {
