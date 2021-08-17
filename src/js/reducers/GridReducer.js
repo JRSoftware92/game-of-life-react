@@ -10,21 +10,19 @@ import gridUtils from "../utils/GridUtils";
 import LifeEngine from "../engine/LifeEngine"
 import { Conway } from "../engine/PresetRules";
 
-const gridReducer = function(state, action){
-    if (state === undefined) {
-        return { 
-            height: 0,
-            width: 0,
-            density: 50,
-            grid: [],
-            selectedRule: Conway
-        };
-    }
-     
+const initialState = {
+    height: 0,
+    width: 0,
+    density: 50,
+    grid: [],
+    selectedRule: Conway
+};
+
+const gridReducer = function(state = initialState, action){
     var newGrid;
     switch (action.type) {
         case RANDOM:
-          return { 
+          return {
               height: action.height,
               width: action.width,
               density: action.density,
@@ -33,39 +31,29 @@ const gridReducer = function(state, action){
           };
         case CLEAR:
           return {
+              ...state,
             height: action.height,
             width: action.width,
-            density: state.density,
             grid: gridUtils.emptyGrid(action.height, action.width),
-            selectedRule: state.selectedRule
           };
         case TOGGLE_TILE:
           newGrid = state.grid.slice();
           newGrid[action.y][action.x] = state.grid[action.y][action.x] ? 0 : 1;
 
           return {
-            height: state.height,
-            width: state.width, 
-            density: state.density,
+              ...state,
             grid: newGrid,
-            selectedRule: state.selectedRule
           };
         case NEXT:
           newGrid = LifeEngine.run(state.grid, state.selectedRule);
 
           return {
-            height: state.height,
-            width: state.width,
-            density: state.density,
+              ...state,
             grid: newGrid,
-            selectedRule: state.selectedRule
           };
         case SELECT_RULE:
           return {
-            height: state.height,
-            width: state.width,
-            density: state.density,
-            grid: state.grid,
+              ...state,
             selectedRule: action.selectedRule
           };
         default:
