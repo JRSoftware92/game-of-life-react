@@ -6,16 +6,20 @@ import * as GridActions from '../../actions/GridActions';
 let timer = null;
 
 const mapStateToProps = ({
-  width, height, density, isRunning: isGameRunning
+  width, height, density, selectedRule, isRunning: isGameRunning
 }) => ({
     width,
     height,
     density,
+    selectedRule,
     isGameRunning,
 })
 
 const mapDispatchToProps = (dispatch) => ({
     actions: {
+        selectRule: (selectedRule) => {
+            dispatch(GridActions.selectRule(selectedRule));
+        },
         randomizeGrid: (numRows, numColumns, density) => {
             clearInterval(timer);
             dispatch(GridActions.stopRunningLife());

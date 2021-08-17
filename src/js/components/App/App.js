@@ -3,6 +3,7 @@ import {
   Route,
   HashRouter
 } from 'react-router-dom';
+import { Container } from '@material-ui/core';
 
 import Header from '../Header/Header';
 import HomePage from '../HomePage/HomePage';
@@ -14,10 +15,10 @@ const App = () => (
     <HashRouter>
       <div className="App">
         <Header />
-        <div className="content">
+        <Container className="content">
           <Route exact path="/" component={HomePage}/>
           <Route path="/game" component={GamePage}/>
-        </div>
+        </Container>
       </div>
     </HashRouter>
 )

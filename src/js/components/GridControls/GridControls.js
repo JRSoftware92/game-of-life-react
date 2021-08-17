@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Button, ButtonGroup, TextField } from '@material-ui/core';
+import { Button, ButtonGroup, Grid, Slider, TextField, Typography } from '@material-ui/core';
+import { BlurOff, BlurOn } from '@material-ui/icons';
 
 import './GridControls.css';
 
@@ -20,7 +21,7 @@ const GridControls = ({
     const [height, setHeight] = useState(initialHeight);
     const [density, setDensity] = useState(initialDensity);
 
-    const handleDensityChange = (e) => setDensity(parseInt(e.target.value));
+    const handleDensityChange = (event, newValue) => setDensity(newValue);
     const handleHeightChange = (e) => setHeight(parseInt(e.target.value));
     const handleWidthChange = (e) => setWidth(parseInt(e.target.value));
 
@@ -53,16 +54,20 @@ const GridControls = ({
                         inputProps={{ maxLength: 2 }}
                         onChange={ handleWidthChange }
                     />
-                    <TextField
-                        id="grid-density"
-                        type="text"
-                        label="Density (%)"
-                        size="small"
-                        variant="outlined"
-                        value={density}
-                        inputProps={{ maxLength: 3 }}
-                        onChange={ handleDensityChange }
-                    />
+                    <Typography id="grid-density" gutterBottom>
+                        Density
+                    </Typography>
+                    <Grid container spacing={2}>
+                        <Grid item>
+                            <BlurOff />
+                        </Grid>
+                        <Grid item xs>
+                            <Slider value={density} onChange={handleDensityChange} aria-labelledby="continuous-slider" />
+                        </Grid>
+                        <Grid item>
+                            <BlurOn />
+                        </Grid>
+                    </Grid>
                 </div>
                 <ButtonGroup variant="contained" color="secondary" className="grid-control-row">
                     <Button id="random" onClick={onRandomizeClicked}>Generate</Button>

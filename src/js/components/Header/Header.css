@@ -1,7 +1,8 @@
 .App-header {
     display: flex;
     flex-direction: column;
-    padding: 20px 20px 0 20px;
+    padding: 1.6rem 0;
+    width: 100%;
 }
 
 .App-title {
@@ -15,6 +16,7 @@
 
 .top-header-row {
     display: flex;
+    align-items: center;
 }
 
 h1, h2, h3, p, ul, li {
