@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
+import { Button, ButtonGroup, TextField } from '@material-ui/core';
 
-import '../Grid/Grid.css';
+import './GridControls.css';
 
 const GridControls = ({
     actions: {
@@ -13,6 +14,7 @@ const GridControls = ({
     width: initialWidth,
     height: initialHeight,
     density: initialDensity,
+    isGameRunning,
 }) => {
     const [width, setWidth] = useState(initialWidth);
     const [height, setHeight] = useState(initialHeight);
@@ -22,30 +24,55 @@ const GridControls = ({
     const handleHeightChange = (e) => setHeight(parseInt(e.target.value));
     const handleWidthChange = (e) => setWidth(parseInt(e.target.value));
 
-    const onStartClicked = () => startRunningLife();
-    const onStopClicked = () => stopRunningLife();
+    const onPlayClicked = () => isGameRunning ? stopRunningLife() : startRunningLife();
     const onNextClicked = () => runLifeIteration();
     const onRandomizeClicked = () => randomizeGrid(height, width, density);
     const onClearClicked = () => clearGrid(height, width);
 
     return (
         <div className="grid-controls">
-            <div className="grid-buttons">
-                <button id="start" onClick={onStartClicked}>Start</button>
-                <button id="stop" onClick={onStopClicked}>Stop</button>
-                <button id="next" onClick={onNextClicked}>Next</button>
-                <button id="random" onClick={onRandomizeClicked}>Randomize</button>
-                <button id="clear" onClick={onClearClicked}>Clear</button>
-            </div>
             <div className="grid-size">
-                <label>Height</label>
-                <input id="grid-height" type="text" size="2" value={height} onChange={ handleHeightChange }/>
-                <label>Width</label>
-                <input id="grid-width" type="text" size="2" value={width} onChange={ handleWidthChange }/>
-                <br/>
-                <label>Random Density (%)</label>
-                <input id="grid-density" type="text" size="3" value={density} onChange={ handleDensityChange }/>
+                <div className="grid-control-row">
+                    <TextField
+                        id="grid-height"
+                        type="text"
+                        label="Height"
+                        size="small"
+                        variant="outlined"
+                        value={height}
+                        inputProps={{ maxLength: 2 }}
+                        onChange={ handleHeightChange }
+                    />
+                    <TextField
+                        id="grid-width"
+                        type="text"
+                        label="Width"
+                        size="small"
+                        variant="outlined"
+                        value={width}
+                        inputProps={{ maxLength: 2 }}
+                        onChange={ handleWidthChange }
+                    />
+                    <TextField
+                        id="grid-density"
+                        type="text"
+                        label="Density (%)"
+                        size="small"
+                        variant="outlined"
+                        value={density}
+                        inputProps={{ maxLength: 3 }}
+                        onChange={ handleDensityChange }
+                    />
+                </div>
+                <ButtonGroup variant="contained" color="secondary" className="grid-control-row">
+                    <Button id="random" onClick={onRandomizeClicked}>Generate</Button>
+                    <Button id="clear" onClick={onClearClicked}>Clear</Button>
+                </ButtonGroup>
             </div>
+            <ButtonGroup variant="contained" color="primary" className="grid-buttons">
+                <Button id="play" onClick={onPlayClicked}>{isGameRunning ? 'Pause' : 'Play'}</Button>
+                <Button id="next" onClick={onNextClicked}>Next</Button>
+            </ButtonGroup>
         </div>
     );
 };

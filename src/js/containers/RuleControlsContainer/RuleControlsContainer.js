@@ -4,12 +4,8 @@ import { bindActionCreators } from 'redux';
 import RuleControls from '../../components/RuleControls/RuleControls';
 import * as GridActions from '../../actions/GridActions';
 
-// Map Redux state to component props
-const mapStateToProps = (state) => ({
-    selectedRule: state.selectedRule
-})
+const mapStateToProps = ({ selectedRule }) => ({ selectedRule });
 
-// Map Redux actions to component props
 const mapDispatchToProps = (dispatch) => ({
     actions: bindActionCreators(GridActions, dispatch)
 })

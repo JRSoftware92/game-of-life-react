@@ -5,14 +5,15 @@ import * as GridActions from '../../actions/GridActions';
 
 let timer = null;
 
-// Map Redux state to component props
-const mapStateToProps = (state) => ({
-    width: state.width,
-    height: state.height,
-    density: state.density,
+const mapStateToProps = ({
+  width, height, density, isRunning: isGameRunning
+}) => ({
+    width,
+    height,
+    density,
+    isGameRunning,
 })
 
-// Map Redux actions to component props
 const mapDispatchToProps = (dispatch) => ({
     actions: {
         randomizeGrid: (numRows, numColumns, density) => {
@@ -32,6 +33,7 @@ const mapDispatchToProps = (dispatch) => ({
         },
         stopRunningLife: () => {
             clearInterval(timer);
+            dispatch(GridActions.stopRunningLife());
         }
     }
 })

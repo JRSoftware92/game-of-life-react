@@ -1,26 +1,39 @@
 import {
+    START,
+    STOP,
     NEXT,
     RANDOM,
     CLEAR,
     TOGGLE_TILE,
     SELECT_RULE
-} from "../actions/GridActions";
+} from '../actions/GridActions';
 
-import gridUtils from "../utils/GridUtils";
-import LifeEngine from "../engine/LifeEngine"
-import { Conway } from "../engine/PresetRules";
+import gridUtils from '../utils/GridUtils';
+import LifeEngine from '../engine/LifeEngine';
+import { Conway } from '../engine/PresetRules';
 
 const initialState = {
     height: 0,
     width: 0,
     density: 50,
     grid: [],
-    selectedRule: Conway
+    selectedRule: Conway,
+    isRunning: false,
 };
 
 const gridReducer = function(state = initialState, action){
-    var newGrid;
+    let newGrid;
     switch (action.type) {
+        case START:
+            return {
+                ...state,
+                isRunning: true,
+            };
+        case STOP:
+            return {
+                ...state,
+                isRunning: false,
+            };
         case RANDOM:
           return {
               height: action.height,

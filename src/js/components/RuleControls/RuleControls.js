@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import find from 'lodash/find';
 import get from 'lodash/get';
-import MenuItem from '@material-ui/core/MenuItem';
-import Select from '@material-ui/core/Select';
+
+import { MenuItem, Select, TextField } from '@material-ui/core';
 
 import PresetRules from '../../engine/PresetRules';
+
+import './RuleControls.css';
 
 const RuleControls = ({ actions: { selectRule }, selectedRule: initialRule }) => {
     const [selectedRule, setSelectedRule] = useState(initialRule);
@@ -17,11 +19,10 @@ const RuleControls = ({ actions: { selectRule }, selectedRule: initialRule }) =>
 
         selectRule(newRule);
     }
-
     const weightGrid = get(selectedRule, 'weights', []);
     return (
-        <div id="rule-controls">
-            <div className="rule-select-container">
+        <div className="rule-controls">
+            <div className="rule-control-row">
                 <Select className="rule-selector"
                         value={selectedRule.value}
                         onChange={handleRuleSelection}
@@ -34,28 +35,30 @@ const RuleControls = ({ actions: { selectRule }, selectedRule: initialRule }) =>
                     }
                 </Select>
             </div>
-            <div>
-                <label>Survival</label>
-                <input id="rule-survival" type="text" value={selectedRule.survival} disabled/>
-                <label>Birth</label>
-                <input id="rule-birth" type="text" value={selectedRule.birth} disabled/>
-            </div>
-            <label>Tile Weights</label>
-            <div id="rule-weights" className="grid">
-                <div className="grid-row">
-                    <input id="top-left-weight" value={weightGrid[0][0]} className="tile" type="text" size="1" disabled/>
-                    <input id="top-center-weight" value={weightGrid[0][1]} className="tile" type="text" size="1" disabled/>
-                    <input id="top-right-weight" value={weightGrid[0][2]} className="tile" type="text" size="1" disabled/>
+            <div className="rule-control-row">
+                <div className="rule-control-column">
+                    <TextField id="rule-survival" type="text" label="Survival" size="small" value={selectedRule.survival} disabled/>
+                    <TextField id="rule-birth" type="text" label="Birth" size="small" value={selectedRule.birth} disabled/>
                 </div>
-                <div className="grid-row">
-                    <input id="left-weight" value={weightGrid[1][0]} className="tile" type="text" size="1" disabled/>
-                    <input id="center-weight" value={weightGrid[1][1]} className="tile" type="text" size="1" disabled/>
-                    <input id="right-weight" value={weightGrid[1][2]} className="tile" type="text" size="1" disabled/>
-                </div>
-                <div className="grid-row">
-                    <input id="bottom-left-weight" value={weightGrid[2][0]} className="tile" type="text" size="1" disabled/>
-                    <input id="bottom-center-weight" value={weightGrid[2][1]} className="tile" type="text" size="1" disabled/>
-                    <input id="bottom-right-weight" value={weightGrid[2][2 ]} className="tile" type="text" size="1" disabled/>
+                <div className="rule-control-column">
+                    <label>Tile Weights</label>
+                    <div id="rule-weights" className="grid">
+                        <div className="grid-row">
+                            <input id="top-left-weight" value={weightGrid[0][0]} className="tile" type="text" size="1" disabled/>
+                            <input id="top-center-weight" value={weightGrid[0][1]} className="tile" type="text" size="1" disabled/>
+                            <input id="top-right-weight" value={weightGrid[0][2]} className="tile" type="text" size="1" disabled/>
+                        </div>
+                        <div className="grid-row">
+                            <input id="left-weight" value={weightGrid[1][0]} className="tile" type="text" size="1" disabled/>
+                            <input id="center-weight" value={weightGrid[1][1]} className="tile" type="text" size="1" disabled/>
+                            <input id="right-weight" value={weightGrid[1][2]} className="tile" type="text" size="1" disabled/>
+                        </div>
+                        <div className="grid-row">
+                            <input id="bottom-left-weight" value={weightGrid[2][0]} className="tile" type="text" size="1" disabled/>
+                            <input id="bottom-center-weight" value={weightGrid[2][1]} className="tile" type="text" size="1" disabled/>
+                            <input id="bottom-right-weight" value={weightGrid[2][2 ]} className="tile" type="text" size="1" disabled/>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

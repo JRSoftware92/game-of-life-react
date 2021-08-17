@@ -19,7 +19,7 @@ const Grid = ({
         for(let j = 0; j < numColumns; j++){
             row.push(
                 <Tile
-                    key={31 * j + i}
+                    key={`tile-${i}-${j}`}
                     x={j}
                     y={i}
                     filled={dataGrid[i][j]}
@@ -30,7 +30,11 @@ const Grid = ({
         rows.push(<div key={i} className="grid-row">{row}</div>);
     }
 
-    return <div className="grid">{rows}</div>;
+    return (
+        <div className="grid-wrapper">
+            <div className="grid">{rows}</div>
+        </div>
+    );
 };
 
 export default Grid;

@@ -1,0 +1,30 @@
+.grid-controls {
+    padding: 8px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.grid-controls label, input {
+    margin: 4px;
+}
+
+.grid-size {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.grid-control-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 4px;
+}
+
+#grid-height,
+#grid-width,
+#grid-density {
+    max-width: 4.8rem;
+    margin: 4px;
+}
