@@ -1,11 +1,10 @@
 
-const emptyGrid = function(numRows, numColumns){
-    var grid = [];
-    var row;
-  
-    for(var i = 0; i < numRows; i++){
-      row = [];
-      for(var j = 0; j < numColumns; j++){
+const emptyGrid = (numRows, numColumns) => {
+    const grid = [];
+
+    for(let i = 0; i < numRows; i++){
+      const row = [];
+      for(let j = 0; j < numColumns; j++){
         row.push(0);
       }
       grid.push(row);
@@ -14,15 +13,13 @@ const emptyGrid = function(numRows, numColumns){
     return grid;
 }
 
-const randomGrid = function(numRows, numColumns, density){
-    var grid = [];
-    var row;
-  
-    var value;
-    for(var i = 0; i < numRows; i++){
-      row = [];
-      for(var j = 0; j < numColumns; j++){
-        value = Math.random() * 100 <= density ? 1 : 0;
+const randomGrid = (numRows, numColumns, density) => {
+    const grid = [];
+
+    for(let i = 0; i < numRows; i++){
+      const row = [];
+      for(let j = 0; j < numColumns; j++){
+        const value = Math.random() * 100 <= density ? 1 : 0;
         row.push(value);
       }
       grid.push(row);

@@ -1,20 +1,18 @@
-import React, { Component } from 'react';
+import React from 'react';
 import {
   Route,
   NavLink,
   HashRouter
-} from "react-router-dom";
+} from 'react-router-dom';
 
 import logo from '../../assets/logo.svg';
-import '../../css/App.css';
-
 import Home from './Home';
 import Game from './Game';
 
-class App extends Component {
-  render() {
-    return (
-      <HashRouter>
+import '../../css/App.css';
+
+const App = () => (
+    <HashRouter>
       <div className="App">
         <header className="App-header">
           <h1 className="App-title">Welcome to Conway's Game of Life</h1>
@@ -27,13 +25,11 @@ class App extends Component {
         </header>
 
         <div className="content">
-            <Route exact path="/" component={Home}/>
-            <Route path="/game" component={Game}/>
+          <Route exact path="/" component={Home}/>
+          <Route path="/game" component={Game}/>
         </div>
       </div>
-      </HashRouter>
-    );
-  }
-}
+    </HashRouter>
+)
 
 export default App;
