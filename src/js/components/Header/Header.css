@@ -1,0 +1,40 @@
+.App-header {
+    display: flex;
+    flex-direction: column;
+    padding: 20px 20px 0 20px;
+}
+
+.App-title {
+    font-size: 2.4rem;
+    margin-left: 1.8rem;
+}
+
+.App-logo {
+    height: 80px;
+}
+
+.top-header-row {
+    display: flex;
+}
+
+h1, h2, h3, p, ul, li {
+    font-family: sans-serif;
+}
+
+.header-link {
+    display: inline;
+    list-style-type: none;
+    margin: 0;
+}
+.header-menu-row {
+    display: flex;
+    justify-content: flex-start;
+    background-color: #555;
+}
+.header-link a {
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 0.8rem;
+    display: inline-block;
+}

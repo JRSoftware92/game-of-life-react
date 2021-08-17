@@ -8,7 +8,7 @@ import gridReducer from "./js/reducers/GridReducer";
 import gridUtils from "./js/utils/GridUtils";
 import { Conway } from "./js/engine/PresetRules";
 
-import App from './js/components/App';
+import App from './js/components/App/App';
 
 import './css/index.css';
 

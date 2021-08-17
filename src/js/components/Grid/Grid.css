@@ -1,0 +1,47 @@
+.black {
+    background-color: #000;
+}
+
+.white {
+    background-color: #FFF;
+}
+
+.grid {
+    margin-left: auto;
+    margin-right: auto;
+    display: table;
+    border: 1px solid black;
+}
+
+.grid-row {
+    display: table-row
+}
+
+.tile {
+    display: table-cell;
+    height: 24px;
+    width: 24px;
+    border: 1px solid grey;
+    margin: 1px;
+}
+
+.grid-controls {
+    padding: 8px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.grid-controls label, input {
+    margin: 4px;
+}
+
+.rule-select {
+    margin: 0 auto;
+    display: inline-block;
+}
+
+.rule-select-container {
+    max-width: 20%;
+    margin-left: auto;
+    margin-right: auto;
+}
