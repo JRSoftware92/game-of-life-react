@@ -32,3 +32,38 @@ export const stopRunningLife = () => ({ type: STOP });
 export const runLifeIteration = () => ({ type: NEXT });
 
 export const selectRule = (selectedRule) => ({type: SELECT_RULE, selectedRule });
+
+let timer = null;
+
+export const bindDispatchToActions = (dispatch) => ({
+    actions: {
+        selectRule: (selectedRule) => {
+            dispatch(selectRule(selectedRule));
+        },
+        randomizeGrid: (numRows, numColumns, density) => {
+            clearInterval(timer);
+            dispatch(stopRunningLife());
+            dispatch(randomizeGrid(numRows, numColumns, density))
+        },
+        clearGrid: (numRows, numColumns) => {
+            clearInterval(timer);
+            dispatch(stopRunningLife());
+            dispatch(clearGrid(numRows, numColumns))
+        },
+        runLifeIteration: () => {
+            dispatch(runLifeIteration())
+        },
+        startRunningLife: () => {
+            clearInterval(timer);
+            timer = setInterval(() => dispatch(runLifeIteration()), 500);
+            dispatch(startRunningLife());
+            dispatch(runLifeIteration());
+        },
+        stopRunningLife: () => {
+            clearInterval(timer);
+            dispatch(stopRunningLife());
+        }
+    }
+});
+
+export default bindDispatchToActions;

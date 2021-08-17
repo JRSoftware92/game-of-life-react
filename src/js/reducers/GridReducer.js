@@ -13,8 +13,8 @@ import LifeEngine from '../engine/LifeEngine';
 import { Conway } from '../engine/PresetRules';
 
 const initialState = {
-    height: 0,
-    width: 0,
+    height: 24,
+    width: 32,
     density: 50,
     grid: [],
     selectedRule: Conway,

@@ -15,10 +15,10 @@ import './css/index.css';
 var destination = document.getElementById('root');
 
 const initialGridState = {
-    height: 4,
-    width: 4,
+    height: 16,
+    width: 48,
     density: 50,
-    grid: gridUtils.emptyGrid(4, 4),
+    grid: gridUtils.emptyGrid(16, 48),
     selectedRule: Conway
 }
 

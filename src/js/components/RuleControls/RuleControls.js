@@ -2,17 +2,23 @@ import React, { useEffect, useState } from 'react';
 import find from 'lodash/find';
 import get from 'lodash/get';
 
-import { MenuItem, Select, TextField } from '@material-ui/core';
+import {Button, ButtonGroup, MenuItem, Select, TextField} from '@material-ui/core';
 
 import PresetRules from '../../engine/PresetRules';
 
 import './RuleControls.css';
 
-const RuleControls = ({ actions: { selectRule }, selectedRule: initialRule }) => {
+const RuleControls = ({
+    actions: { startRunningLife, stopRunningLife, runLifeIteration, selectRule },
+    selectedRule: initialRule,
+    isGameRunning,
+}) => {
     const [selectedRule, setSelectedRule] = useState(initialRule);
 
     useEffect(() => setSelectedRule(initialRule), [initialRule]);
 
+    const onPlayClicked = () => isGameRunning ? stopRunningLife() : startRunningLife();
+    const onNextClicked = () => runLifeIteration();
     const handleRuleSelection = (event) => {
         const selectedValue = get(event, 'target.value');
         const newRule = find(PresetRules, { value: selectedValue });
@@ -34,6 +40,10 @@ const RuleControls = ({ actions: { selectRule }, selectedRule: initialRule }) =>
                         ))
                     }
                 </Select>
+                <ButtonGroup variant="contained" className="grid-buttons">
+                    <Button id="play" color={isGameRunning ? 'secondary' : 'primary'} onClick={onPlayClicked}>{isGameRunning ? 'Pause' : 'Play'}</Button>
+                    <Button id="next" onClick={onNextClicked}>Next</Button>
+                </ButtonGroup>
             </div>
             <div className="rule-control-row">
                 <div className="rule-control-column">

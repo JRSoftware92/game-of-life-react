@@ -1,14 +1,15 @@
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
 
 import RuleControls from '../../components/RuleControls/RuleControls';
-import * as GridActions from '../../actions/GridActions';
+import bindDispatchToActions from '../../actions/GridActions';
 
-const mapStateToProps = ({ selectedRule }) => ({ selectedRule });
+const mapStateToProps = ({
+  height, width, density, selectedRule, isRunning: isGameRunning,
+}) => ({
+  height, width, density, selectedRule, isGameRunning,
+});
 
-const mapDispatchToProps = (dispatch) => ({
-    actions: bindActionCreators(GridActions, dispatch)
-})
+const mapDispatchToProps = (dispatch) => bindDispatchToActions(dispatch);
 
 // The HOC (Higher Order Component)
 const connectedComponent = connect(

@@ -7,8 +7,8 @@ import './ControlSection.css';
 
 export const ControlSection = () => (
     <div className="control-section">
-        <RuleControlsContainer />
         <GridControlsContainer />
+        <RuleControlsContainer />
     </div>
 );
 

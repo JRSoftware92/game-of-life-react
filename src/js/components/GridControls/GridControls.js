@@ -6,16 +6,12 @@ import './GridControls.css';
 
 const GridControls = ({
     actions: {
-        startRunningLife,
-        stopRunningLife,
-        runLifeIteration,
         randomizeGrid,
         clearGrid,
     },
     width: initialWidth,
     height: initialHeight,
     density: initialDensity,
-    isGameRunning,
 }) => {
     const [width, setWidth] = useState(initialWidth);
     const [height, setHeight] = useState(initialHeight);
@@ -25,8 +21,6 @@ const GridControls = ({
     const handleHeightChange = (e) => setHeight(parseInt(e.target.value));
     const handleWidthChange = (e) => setWidth(parseInt(e.target.value));
 
-    const onPlayClicked = () => isGameRunning ? stopRunningLife() : startRunningLife();
-    const onNextClicked = () => runLifeIteration();
     const onRandomizeClicked = () => randomizeGrid(height, width, density);
     const onClearClicked = () => clearGrid(height, width);
 
@@ -54,30 +48,28 @@ const GridControls = ({
                         inputProps={{ maxLength: 2 }}
                         onChange={ handleWidthChange }
                     />
-                    <Typography id="grid-density" gutterBottom>
-                        Density
-                    </Typography>
-                    <Grid container spacing={2}>
-                        <Grid item>
-                            <BlurOff />
-                        </Grid>
-                        <Grid item xs>
-                            <Slider value={density} onChange={handleDensityChange} aria-labelledby="continuous-slider" />
-                        </Grid>
-                        <Grid item>
-                            <BlurOn />
-                        </Grid>
-                    </Grid>
+                    <ButtonGroup variant="contained">
+                        <Button id="generate" color="primary" onClick={onRandomizeClicked}>Generate</Button>
+                        <Button id="clear" color="secondary" onClick={onClearClicked}>Clear</Button>
+                    </ButtonGroup>
                 </div>
-                <ButtonGroup variant="contained" color="secondary" className="grid-control-row">
-                    <Button id="random" onClick={onRandomizeClicked}>Generate</Button>
-                    <Button id="clear" onClick={onClearClicked}>Clear</Button>
-                </ButtonGroup>
             </div>
-            <ButtonGroup variant="contained" color="primary" className="grid-buttons">
-                <Button id="play" onClick={onPlayClicked}>{isGameRunning ? 'Pause' : 'Play'}</Button>
-                <Button id="next" onClick={onNextClicked}>Next</Button>
-            </ButtonGroup>
+            <div className="grid-control-row">
+                <Typography id="grid-density" gutterBottom>
+                    Density
+                </Typography>
+                <Grid container spacing={2}>
+                    <Grid item>
+                        <BlurOff />
+                    </Grid>
+                    <Grid item xs>
+                        <Slider value={density} onChange={handleDensityChange} aria-labelledby="continuous-slider" />
+                    </Grid>
+                    <Grid item>
+                        <BlurOn />
+                    </Grid>
+                </Grid>
+            </div>
         </div>
     );
 };

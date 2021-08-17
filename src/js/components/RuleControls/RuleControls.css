@@ -8,6 +8,10 @@
     margin-right: auto;
 }
 
+.rule-selector {
+    margin-right: 4px;
+}
+
 .rule-controls {
     display: flex;
     flex-direction: column;
