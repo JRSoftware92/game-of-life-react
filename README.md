@@ -2,7 +2,7 @@
 
 ****
 
-![Conway's Game of Life](./src/assets/images/demo.png)
+![Conway's Game of Life](./images/demo.png)
 
 **Many of the following details have been taken directly from the Wikipedia for Conway's Game of Life.
 

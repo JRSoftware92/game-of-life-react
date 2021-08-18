@@ -10,7 +10,7 @@ import {
 
 import gridUtils from '../utils/GridUtils/GridUtils';
 import LifeEngine from '../engine/LifeEngine';
-import PresetRules from '../../data/preset-rules.json';
+import PresetRules from '../data/preset-rules.json';
 
 export const initialState = {
     height: 16,

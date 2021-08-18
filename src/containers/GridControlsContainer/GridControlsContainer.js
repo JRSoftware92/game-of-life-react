@@ -4,7 +4,7 @@ import GridControls from '../../components/GridControls/GridControls';
 import bindDispatchToActions from "../../actions/GridActions";
 
 const mapStateToProps = ({
-  width, height, density, selectedRule, isRunning: isGameRunning
+  width, height, density,
 }) => ({
     width,
     height,

@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, fireEvent, screen, cleanup } from '@testing-library/react';
 
-import PresetRules from '../../../data/preset-rules.json';
+import PresetRules from '../../data/preset-rules.json';
 import RuleControls from './RuleControls';
 
 const getJSX = (props = {}) => <RuleControls {...props} />;
