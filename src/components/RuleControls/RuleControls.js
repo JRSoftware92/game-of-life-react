@@ -73,9 +73,7 @@ const RuleControls = ({
     const [selectedRule, setSelectedRule] = useState(initialRule);
     const [allowRuleCustomization, setAllowRuleCustomization] = useState(false);
     const weightGrid = get(selectedRule, 'weights', []);
-
-    console.log('Weights on render', weightGrid);
-
+    
     useEffect(() => setSelectedRule(initialRule), [initialRule]);
 
     const onPlayClicked = () => isGameRunning ? stopRunningLife() : startRunningLife();
@@ -104,7 +102,6 @@ const RuleControls = ({
     const onWeightValueChange = (x, y, event) => {
         const newWeight = get(event, 'target.value');
 
-        console.log('Changing Weight Tile', `(${x},${y}): `, newWeight);
         const newWeightGrid = cloneDeep(weightGrid);
         newWeightGrid[x][y] = parseInt(newWeight);
 
