@@ -46,4 +46,12 @@ The rules continue to be applied repeatedly to create further generations.
 Different threshold values for how many neighbors it takes to either survive or for a cell to die can result
 in wildly different patterns. A number of preset patterns have been included with this application to experiment with.
 
+## Roadmap
 
+- More Robust Test Suite
+- Plain English Rule Evaluations (Modal)
+- Rule Customization
+- Rule Import/Export
+- Grid Import/Export
+- Preset Grid Pattern Loading
+- Rule/Pattern Preset Descriptions

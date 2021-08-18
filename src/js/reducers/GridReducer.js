@@ -12,14 +12,13 @@ import gridUtils from '../utils/GridUtils/GridUtils';
 import LifeEngine from '../engine/LifeEngine';
 import PresetRules from '../../data/preset-rules.json';
 
-const initialState = {
-    height: 24,
-    width: 32,
+export const initialState = {
+    height: 16,
+    width: 48,
     density: 50,
-    grid: [],
-    selectedRule: PresetRules[0],
-    isRunning: false,
-};
+    grid: gridUtils.emptyGrid(16, 48),
+    selectedRule: PresetRules[0]
+}
 
 const gridReducer = function(state = initialState, action){
     let newGrid;
