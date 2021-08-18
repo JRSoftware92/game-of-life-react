@@ -10,8 +10,8 @@ const Grid = ({
     height: numRows,
     width: numColumns,
     grid,
-              }) => {
-    const dataGrid = grid || !grid.length ? grid : gridUtils.emptyGrid(numRows, numColumns);
+}) => {
+    const dataGrid = (!grid || !grid.length) ? gridUtils.emptyGrid(numRows, numColumns) : grid;
 
     const rows = [];
     for(let i = 0; i < numRows; i++){
