@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, BrowserRouter } from 'react-router-dom';
+import { Route, Switch, BrowserRouter } from 'react-router-dom';
 import { Container } from '@material-ui/core';
 
 import Header from '../Header/Header';
@@ -13,8 +13,10 @@ const App = () => (
       <div className="App">
         <Header />
         <Container className="content">
-          <Route exact path="/" component={HomePage}/>
-          <Route path="/game" component={GamePage}/>
+            <Switch>
+                <Route path="/game" component={GamePage}/>
+                <Route bpath="/" component={HomePage}/>
+            </Switch>
         </Container>
       </div>
     </BrowserRouter>
