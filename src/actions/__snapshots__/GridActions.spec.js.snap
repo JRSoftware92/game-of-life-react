@@ -17,7 +17,7 @@ Object {
 }
 `;
 
-exports[`Grid Action Creator Functions Action Shapes Run Single Life Simlation Iteration Action 1`] = `
+exports[`Grid Action Creator Functions Action Shapes Run Single Life Simulation Iteration Action 1`] = `
 Object {
   "type": "NEXT",
 }

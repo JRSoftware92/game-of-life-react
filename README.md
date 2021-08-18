@@ -48,10 +48,9 @@ in wildly different patterns. A number of preset patterns have been included wit
 
 ## Roadmap
 
-- More Robust Test Suite
-- Plain English Rule Evaluations (Modal)
 - Rule Customization
+- Plain English Rule Evaluations (Modal)
 - Rule Import/Export
 - Grid Import/Export
-- Preset Grid Pattern Loading
 - Rule/Pattern Preset Descriptions
+- Preset Pattern Painting

@@ -6,7 +6,7 @@ import Tile from './children/Tile';
 import './Grid.css';
 
 const Grid = ({
-    actions: { toggleTile },
+    toggleTile,
     height: numRows,
     width: numColumns,
     grid,
@@ -23,7 +23,7 @@ const Grid = ({
                     x={j}
                     y={i}
                     filled={dataGrid[i][j]}
-                    onTileClicked={(x, y) => toggleTile(x, y)}
+                    onTileClicked={toggleTile}
                 />
             );
         }
