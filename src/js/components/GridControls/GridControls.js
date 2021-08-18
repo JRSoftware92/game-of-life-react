@@ -21,7 +21,7 @@ const GridControls = ({
     const handleHeightChange = (e) => setHeight(parseInt(e.target.value));
     const handleWidthChange = (e) => setWidth(parseInt(e.target.value));
 
-    const onRandomizeClicked = () => randomizeGrid(height, width, density);
+    const onGenerateClicked = () => randomizeGrid(height, width, density);
     const onClearClicked = () => clearGrid(height, width);
 
     return (
@@ -49,13 +49,13 @@ const GridControls = ({
                         onChange={ handleWidthChange }
                     />
                     <ButtonGroup className="grid-buttons" variant="contained">
-                        <Button id="generate" color="primary" onClick={onRandomizeClicked}>Generate</Button>
+                        <Button id="generate" color="primary" onClick={onGenerateClicked}>Generate</Button>
                         <Button id="clear" color="secondary" onClick={onClearClicked}>Clear</Button>
                     </ButtonGroup>
                 </div>
             </div>
             <div className="grid-control-row">
-                <Typography id="grid-density" gutterBottom>
+                <Typography gutterBottom>
                     Density
                 </Typography>
                 <Grid container spacing={2}>
@@ -63,7 +63,7 @@ const GridControls = ({
                         <BlurOff />
                     </Grid>
                     <Grid item xs>
-                        <Slider value={density} onChange={handleDensityChange} aria-labelledby="continuous-slider" />
+                        <Slider id="grid-density" aria-label="Density" value={density} onChange={handleDensityChange} aria-labelledby="continuous-slider" />
                     </Grid>
                     <Grid item>
                         <BlurOn />

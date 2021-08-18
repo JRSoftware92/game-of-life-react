@@ -4,7 +4,7 @@ import { render, cleanup } from '@testing-library/react';
 import Grid from './Grid';
 
 const getJSX = (props = {}) => <Grid {...props} />;
-const renderTile = (props = {}) => render(getJSX(props));
+const renderGrid = (props = {}) => render(getJSX(props));
 
 describe('Grid Component', () => {
     afterEach(cleanup);
@@ -16,14 +16,14 @@ describe('Grid Component', () => {
         actions: { toggleTile: jest.fn() },
     };
 
-    test('renders an  empty grid sizes to the provided height and width values', () => {
-        const { container } = renderTile(props);
+    test('renders an empty grid sized to the provided height and width values', () => {
+        const { container } = renderGrid(props);
         expect(container.getElementsByClassName('grid-row').length).toBe(2);
         expect(container.getElementsByClassName('tile').length).toBe(4);
     });
 
-    test('renders an  empty grid sizes to the provided height and width values', () => {
-        const { container } = renderTile({
+    test('renders a grid corresponding to the grid provided via props', () => {
+        const { container } = renderGrid({
             ...props,
             grid: [
                 [1, 0],
