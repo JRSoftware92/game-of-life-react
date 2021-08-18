@@ -8,7 +8,7 @@ import {
     SELECT_RULE
 } from '../actions/GridActions';
 
-import gridUtils from '../utils/GridUtils';
+import gridUtils from '../utils/GridUtils/GridUtils';
 import LifeEngine from '../engine/LifeEngine';
 import PresetRules from '../../data/preset-rules.json';
 

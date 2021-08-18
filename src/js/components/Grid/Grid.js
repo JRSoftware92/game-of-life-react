@@ -1,6 +1,6 @@
 import React from 'react';
 
-import gridUtils from '../../utils/GridUtils';
+import gridUtils from '../../utils/GridUtils/GridUtils';
 import Tile from './children/Tile';
 
 import './Grid.css';
