@@ -4,9 +4,9 @@ import RuleControls from '../../components/RuleControls/RuleControls';
 import bindDispatchToActions from '../../actions/GridActions';
 
 const mapStateToProps = ({
-  height, width, density, selectedRule, isRunning: isGameRunning, useCustomRule,
+  selectedRule, useCustomRule,
 }) => ({
-  height, width, density, selectedRule, isGameRunning, useCustomRule,
+  selectedRule, useCustomRule,
 });
 
 const mapDispatchToProps = (dispatch) => bindDispatchToActions(dispatch);

@@ -4,7 +4,7 @@ import get from 'lodash/get';
 import cloneDeep from 'lodash/cloneDeep';
 
 import {
-    Button, ButtonGroup, FormControlLabel, MenuItem, Select, Switch, TextField, Typography,
+    FormControlLabel, MenuItem, Select, Switch, TextField, Typography,
 } from '@material-ui/core';
 
 import PresetRules from '../../data/preset-rules.json';
@@ -65,9 +65,8 @@ const WeightGridDisplay = ({ weightGrid, allowRuleCustomization, onWeightValueCh
 };
 
 const RuleControls = ({
-    actions: { startRunningLife, stopRunningLife, runLifeIteration, selectRule, setUseCustomRule },
+    actions: { selectRule, setUseCustomRule },
     selectedRule: initialRule,
-    isGameRunning,
     useCustomRule,
 }) => {
     const [selectedRule, setSelectedRule] = useState(initialRule);
@@ -76,8 +75,6 @@ const RuleControls = ({
 
     useEffect(() => setSelectedRule(initialRule), [initialRule]);
 
-    const onPlayClicked = () => isGameRunning ? stopRunningLife() : startRunningLife();
-    const onNextClicked = () => runLifeIteration();
     const onAllowCustomizationToggle = () => setAllowRuleCustomization(!allowRuleCustomization);
 
     const applyNewRuleset = (ruleset) => {
@@ -118,7 +115,7 @@ const RuleControls = ({
     };
     return (
         <div className="rule-controls">
-            <div className="rule-control-row">
+            <div className="rule-control-row no-wrap">
                 <Select
                     className="rule-selector"
                     value={selectedRule.value}
@@ -135,10 +132,6 @@ const RuleControls = ({
                         ))
                     }
                 </Select>
-                <ButtonGroup variant="contained" className="grid-buttons">
-                    <Button id="play" color={isGameRunning ? 'secondary' : 'primary'} onClick={onPlayClicked}>{isGameRunning ? 'Pause' : 'Play'}</Button>
-                    <Button id="next" onClick={onNextClicked}>Next</Button>
-                </ButtonGroup>
                 <div className="rule-customization-switch">
                     <FormControlLabel
                         label="Allow Customization"

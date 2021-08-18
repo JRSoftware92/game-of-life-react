@@ -1,4 +1,5 @@
 import React from 'react';
+import { Container } from '@material-ui/core';
 
 import gridUtils from '../../utils/GridUtils/GridUtils';
 import Tile from './children/Tile';
@@ -31,9 +32,9 @@ const Grid = ({
     }
 
     return (
-        <div className="grid-wrapper">
+        <Container className="grid-wrapper" maxWidth="md" disableGutters>
             <div className="grid">{rows}</div>
-        </div>
+        </Container>
     );
 };
 

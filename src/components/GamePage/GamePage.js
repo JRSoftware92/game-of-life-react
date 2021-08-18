@@ -8,12 +8,12 @@ import ControlSection from "../ControlSection/ControlSection";
 import './GamePage.css';
 
 const GamePage = () => (
-    <Container className="game-content">
+    <div className="game-content">
         <Container className="grid-section">
             <GridContainer/>
         </Container>
         <ControlSection/>
-    </Container>
+    </div>
 );
 
 export default GamePage;

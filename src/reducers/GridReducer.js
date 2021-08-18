@@ -14,10 +14,10 @@ import LifeEngine from '../engine/LifeEngine';
 import PresetRules from '../data/preset-rules.json';
 
 export const initialState = {
-    height: 16,
-    width: 48,
+    height: 8,
+    width: 8,
     density: 50,
-    grid: gridUtils.emptyGrid(16, 48),
+    grid: gridUtils.emptyGrid(8, 8),
     selectedRule: PresetRules[0],
     isRunning: false,
     useCustomRule: false,
