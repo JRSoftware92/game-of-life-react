@@ -73,7 +73,7 @@ const RuleControls = ({
     const [selectedRule, setSelectedRule] = useState(initialRule);
     const [allowRuleCustomization, setAllowRuleCustomization] = useState(false);
     const weightGrid = get(selectedRule, 'weights', []);
-    
+
     useEffect(() => setSelectedRule(initialRule), [initialRule]);
 
     const onPlayClicked = () => isGameRunning ? stopRunningLife() : startRunningLife();
