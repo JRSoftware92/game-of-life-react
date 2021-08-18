@@ -1,5 +1,5 @@
 
-const emptyGrid = (numRows, numColumns) => {
+export const emptyGrid = (numRows, numColumns) => {
     const grid = [];
 
     for(let i = 0; i < numRows; i++){
@@ -13,7 +13,7 @@ const emptyGrid = (numRows, numColumns) => {
     return grid;
 }
 
-const randomGrid = (numRows, numColumns, density) => {
+export const randomGrid = (numRows, numColumns, density) => {
     const grid = [];
 
     for(let i = 0; i < numRows; i++){
