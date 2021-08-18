@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import find from 'lodash/find';
 import get from 'lodash/get';
 
-import {Button, ButtonGroup, MenuItem, Select, TextField} from '@material-ui/core';
+import { Button, ButtonGroup, MenuItem, Select, TextField } from '@material-ui/core';
 
 import PresetRules from '../../../data/preset-rules.json';
 
@@ -29,14 +29,15 @@ const RuleControls = ({
     return (
         <div className="rule-controls">
             <div className="rule-control-row">
-                <Select className="rule-selector"
-                        value={selectedRule.value}
-                        onChange={handleRuleSelection}
-                        options={PresetRules}
+                <Select
+                    className="rule-selector"
+                    value={selectedRule.value}
+                    onChange={handleRuleSelection}
+                    options={PresetRules}
                 >
                     {
                         PresetRules.map(presetRule => (
-                            <MenuItem value={presetRule.value}>{presetRule.label}</MenuItem>
+                            <MenuItem key={presetRule.value} value={presetRule.value}>{presetRule.label}</MenuItem>
                         ))
                     }
                 </Select>
