@@ -1,31 +1,124 @@
 import React, { useEffect, useState } from 'react';
 import find from 'lodash/find';
 import get from 'lodash/get';
+import cloneDeep from 'lodash/cloneDeep';
 
-import { Button, ButtonGroup, MenuItem, Select, TextField } from '@material-ui/core';
+import {
+    Button, ButtonGroup, FormControlLabel, MenuItem, Select, Switch, TextField, Typography,
+} from '@material-ui/core';
 
 import PresetRules from '../../data/preset-rules.json';
 
 import './RuleControls.css';
 
+const WeightGridTile = ({
+    x, y, value, disabled, onWeightValueChange,
+}) => {
+    const onChange = (event) => onWeightValueChange(x, y, event);
+    return (
+        <input
+            className="tile"
+            type="text"
+            size="1"
+            value={value}
+            disabled={disabled}
+            onChange={onChange}
+        />
+    );
+}
+
+const WeightGridRow = ({
+    y, weightGridRow, allowRuleCustomization, onWeightValueChange
+}) => (
+    <div className="grid-row">
+        {
+            weightGridRow.map((weightGridTile, x) => (
+                <WeightGridTile
+                    x={x} y={y}
+                    value={weightGridTile}
+                    disabled={!allowRuleCustomization}
+                    onWeightValueChange={onWeightValueChange}
+                />
+            ))
+        }
+    </div>
+)
+
+const WeightGridDisplay = ({ weightGrid, allowRuleCustomization, onWeightValueChange }) => {
+    return (
+        <div className="rule-control-column">
+            <Typography>Tile Weights</Typography>
+            <div id="rule-weights" className="grid">
+                {
+                    weightGrid.map((weightGridRow, y) => (
+                        <WeightGridRow
+                            y={y}
+                            weightGridRow={weightGridRow}
+                            allowRuleCustomization={allowRuleCustomization}
+                            onWeightValueChange={onWeightValueChange}
+                        />
+                    ))
+                }
+            </div>
+        </div>
+    );
+};
+
 const RuleControls = ({
-    actions: { startRunningLife, stopRunningLife, runLifeIteration, selectRule },
+    actions: { startRunningLife, stopRunningLife, runLifeIteration, selectRule, setUseCustomRule },
     selectedRule: initialRule,
     isGameRunning,
+    useCustomRule,
 }) => {
     const [selectedRule, setSelectedRule] = useState(initialRule);
+    const [allowRuleCustomization, setAllowRuleCustomization] = useState(false);
+    const weightGrid = get(selectedRule, 'weights', []);
+
+    console.log('Weights on render', weightGrid);
 
     useEffect(() => setSelectedRule(initialRule), [initialRule]);
 
     const onPlayClicked = () => isGameRunning ? stopRunningLife() : startRunningLife();
     const onNextClicked = () => runLifeIteration();
+    const onAllowCustomizationToggle = () => setAllowRuleCustomization(!allowRuleCustomization);
+
+    const applyNewRuleset = (ruleset) => {
+        setUseCustomRule(true);
+        selectRule(ruleset);
+    };
+
+    const onBirthRuleUpdate = (event) => {
+        const newBirth = parseInt(get(event, 'target.value'));
+        applyNewRuleset({
+            ...selectedRule,
+            birth: newBirth,
+        });
+    };
+    const onSurvivalRuleUpdate = (event) => {
+        const newSurvival = parseInt(get(event, 'target.value'));
+        applyNewRuleset({
+            ...selectedRule,
+            survival: newSurvival,
+        });
+    };
+    const onWeightValueChange = (x, y, event) => {
+        const newWeight = get(event, 'target.value');
+
+        console.log('Changing Weight Tile', `(${x},${y}): `, newWeight);
+        const newWeightGrid = cloneDeep(weightGrid);
+        newWeightGrid[x][y] = parseInt(newWeight);
+
+        applyNewRuleset({
+            ...selectedRule,
+            weights: newWeightGrid,
+        });
+    };
     const handleRuleSelection = (event) => {
         const selectedValue = get(event, 'target.value');
         const newRule = find(PresetRules, { value: selectedValue });
 
         selectRule(newRule);
-    }
-    const weightGrid = get(selectedRule, 'weights', []);
+    };
     return (
         <div className="rule-controls">
             <div className="rule-control-row">
@@ -37,7 +130,11 @@ const RuleControls = ({
                 >
                     {
                         PresetRules.map(presetRule => (
-                            <MenuItem key={presetRule.value} value={presetRule.value}>{presetRule.label}</MenuItem>
+                            <MenuItem key={presetRule.value} value={presetRule.value}>
+                                {
+                                    `${presetRule.label}${useCustomRule ? ' (Custom)' : '' }`
+                                }
+                            </MenuItem>
                         ))
                     }
                 </Select>
@@ -45,32 +142,45 @@ const RuleControls = ({
                     <Button id="play" color={isGameRunning ? 'secondary' : 'primary'} onClick={onPlayClicked}>{isGameRunning ? 'Pause' : 'Play'}</Button>
                     <Button id="next" onClick={onNextClicked}>Next</Button>
                 </ButtonGroup>
+                <div className="rule-customization-switch">
+                    <FormControlLabel
+                        label="Allow Customization"
+                        control={
+                            <Switch
+                                name="Allow Customization"
+                                checked={allowRuleCustomization}
+                                onChange={onAllowCustomizationToggle}
+                            />
+                        }
+                    />
+                </div>
             </div>
             <div className="rule-control-row">
                 <div className="rule-control-column">
-                    <TextField id="rule-survival" type="text" label="Survival" size="small" value={selectedRule.survival} disabled/>
-                    <TextField id="rule-birth" type="text" label="Birth" size="small" value={selectedRule.birth} disabled/>
+                    <TextField
+                        id="rule-survival"
+                        type="text"
+                        label="Survival"
+                        size="small"
+                        value={selectedRule.survival}
+                        disabled={!allowRuleCustomization}
+                        onChange={onSurvivalRuleUpdate}
+                    />
+                    <TextField
+                        id="rule-birth"
+                        type="text"
+                        label="Birth"
+                        size="small"
+                        value={selectedRule.birth}
+                        disabled={!allowRuleCustomization}
+                        onChange={onBirthRuleUpdate}
+                    />
                 </div>
-                <div className="rule-control-column">
-                    <label>Tile Weights</label>
-                    <div id="rule-weights" className="grid">
-                        <div className="grid-row">
-                            <input id="top-left-weight" value={weightGrid[0][0]} className="tile" type="text" size="1" disabled/>
-                            <input id="top-center-weight" value={weightGrid[0][1]} className="tile" type="text" size="1" disabled/>
-                            <input id="top-right-weight" value={weightGrid[0][2]} className="tile" type="text" size="1" disabled/>
-                        </div>
-                        <div className="grid-row">
-                            <input id="left-weight" value={weightGrid[1][0]} className="tile" type="text" size="1" disabled/>
-                            <input id="center-weight" value={weightGrid[1][1]} className="tile" type="text" size="1" disabled/>
-                            <input id="right-weight" value={weightGrid[1][2]} className="tile" type="text" size="1" disabled/>
-                        </div>
-                        <div className="grid-row">
-                            <input id="bottom-left-weight" value={weightGrid[2][0]} className="tile" type="text" size="1" disabled/>
-                            <input id="bottom-center-weight" value={weightGrid[2][1]} className="tile" type="text" size="1" disabled/>
-                            <input id="bottom-right-weight" value={weightGrid[2][2 ]} className="tile" type="text" size="1" disabled/>
-                        </div>
-                    </div>
-                </div>
+                <WeightGridDisplay
+                    weightGrid={weightGrid}
+                    allowRuleCustomization={allowRuleCustomization}
+                    onWeightValueChange={onWeightValueChange}
+                />
             </div>
         </div>
     );

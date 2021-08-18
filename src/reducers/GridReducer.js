@@ -5,7 +5,8 @@ import {
     RANDOM,
     CLEAR,
     TOGGLE_TILE,
-    SELECT_RULE
+    SELECT_RULE,
+    USE_CUSTOM_RULE,
 } from '../actions/GridActions';
 
 import gridUtils from '../utils/GridUtils/GridUtils';
@@ -17,7 +18,9 @@ export const initialState = {
     width: 48,
     density: 50,
     grid: gridUtils.emptyGrid(16, 48),
-    selectedRule: PresetRules[0]
+    selectedRule: PresetRules[0],
+    isRunning: false,
+    useCustomRule: false,
 }
 
 const gridReducer = function(state = initialState, action){
@@ -66,8 +69,14 @@ const gridReducer = function(state = initialState, action){
         case SELECT_RULE:
           return {
               ...state,
-            selectedRule: action.selectedRule
+              useCustomRule: false,
+              selectedRule: action.selectedRule,
           };
+        case USE_CUSTOM_RULE:
+            return {
+                ...state,
+                useCustomRule: true,
+            };
         default:
           return state;
     }

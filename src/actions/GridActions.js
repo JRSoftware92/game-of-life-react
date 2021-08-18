@@ -5,6 +5,7 @@ export const START = 'START';
 export const STOP = 'STOP';
 export const NEXT = 'NEXT';
 export const SELECT_RULE = 'SELECT_RULE';
+export const USE_CUSTOM_RULE = 'USE_CUSTOM_RULE';
 
 export const randomizeGrid = (numRows, numColumns, density) => ({
     type: RANDOM,
@@ -33,10 +34,15 @@ export const runLifeIteration = () => ({ type: NEXT });
 
 export const selectRule = (selectedRule) => ({ type: SELECT_RULE, selectedRule });
 
+export const setUseCustomRule = (customRule) => ({ type: USE_CUSTOM_RULE, customRule });
+
 let timer = null;
 
 export const bindDispatchToActions = (dispatch) => ({
     actions: {
+        setUseCustomRule: (customRule) => {
+            dispatch(setUseCustomRule(customRule));
+        },
         selectRule: (selectedRule) => {
             dispatch(selectRule(selectedRule));
         },
