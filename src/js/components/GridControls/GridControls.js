@@ -48,7 +48,7 @@ const GridControls = ({
                         inputProps={{ maxLength: 2 }}
                         onChange={ handleWidthChange }
                     />
-                    <ButtonGroup variant="contained">
+                    <ButtonGroup className="grid-buttons" variant="contained">
                         <Button id="generate" color="primary" onClick={onRandomizeClicked}>Generate</Button>
                         <Button id="clear" color="secondary" onClick={onClearClicked}>Clear</Button>
                     </ButtonGroup>

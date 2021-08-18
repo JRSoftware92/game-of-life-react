@@ -4,7 +4,7 @@ import get from 'lodash/get';
 
 import {Button, ButtonGroup, MenuItem, Select, TextField} from '@material-ui/core';
 
-import PresetRules from '../../engine/PresetRules';
+import PresetRules from '../../../data/preset-rules.json';
 
 import './RuleControls.css';
 

@@ -10,14 +10,14 @@ import {
 
 import gridUtils from '../utils/GridUtils';
 import LifeEngine from '../engine/LifeEngine';
-import { Conway } from '../engine/PresetRules';
+import PresetRules from '../../data/preset-rules.json';
 
 const initialState = {
     height: 24,
     width: 32,
     density: 50,
     grid: [],
-    selectedRule: Conway,
+    selectedRule: PresetRules[0],
     isRunning: false,
 };
 
