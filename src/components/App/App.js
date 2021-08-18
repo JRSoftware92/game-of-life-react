@@ -1,8 +1,5 @@
 import React from 'react';
-import {
-  Route,
-  HashRouter
-} from 'react-router-dom';
+import { Route, BrowserRouter } from 'react-router-dom';
 import { Container } from '@material-ui/core';
 
 import Header from '../Header/Header';
@@ -12,7 +9,7 @@ import GamePage from '../GamePage/GamePage';
 import './App.css';
 
 const App = () => (
-    <HashRouter>
+    <BrowserRouter>
       <div className="App">
         <Header />
         <Container className="content">
@@ -20,7 +17,7 @@ const App = () => (
           <Route path="/game" component={GamePage}/>
         </Container>
       </div>
-    </HashRouter>
+    </BrowserRouter>
 )
 
 export default App;
