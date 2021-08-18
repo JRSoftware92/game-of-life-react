@@ -30,7 +30,7 @@ describe('Grid Action Creator Functions', () => {
            expect(stopRunningLife()).toMatchSnapshot();
        });
 
-       test('Run Single Life Simlation Iteration Action', () => {
+       test('Run Single Life Simulation Iteration Action', () => {
            expect(runLifeIteration()).toMatchSnapshot();
        });
 
