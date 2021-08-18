@@ -1,6 +1,6 @@
 import LifeEngine from './LifeEngine';
 
-import PresetRules from '../../data/preset-rules.json';
+import PresetRules from '../data/preset-rules.json';
 
 describe('Life Rules Engine', () => {
     test('single iteration test (Conway)', () => {

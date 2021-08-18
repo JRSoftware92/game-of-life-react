@@ -31,7 +31,7 @@ export const stopRunningLife = () => ({ type: STOP });
 
 export const runLifeIteration = () => ({ type: NEXT });
 
-export const selectRule = (selectedRule) => ({type: SELECT_RULE, selectedRule });
+export const selectRule = (selectedRule) => ({ type: SELECT_RULE, selectedRule });
 
 let timer = null;
 

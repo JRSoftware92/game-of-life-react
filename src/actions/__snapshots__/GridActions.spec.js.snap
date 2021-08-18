@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Grid Action Creator Functions Action Shapes Clear Grid Action 1`] = `
+Object {
+  "height": 2,
+  "type": "CLEAR",
+  "width": 2,
+}
+`;
+
+exports[`Grid Action Creator Functions Action Shapes Randomize Grid Action 1`] = `
+Object {
+  "density": 50,
+  "height": 2,
+  "type": "RANDOM",
+  "width": 2,
+}
+`;
+
+exports[`Grid Action Creator Functions Action Shapes Run Single Life Simlation Iteration Action 1`] = `
+Object {
+  "type": "NEXT",
+}
+`;
+
+exports[`Grid Action Creator Functions Action Shapes Select Simulation Rule Action 1`] = `
+Object {
+  "selectedRule": Object {
+    "value": "selectedRule",
+  },
+  "type": "SELECT_RULE",
+}
+`;
+
+exports[`Grid Action Creator Functions Action Shapes Start Life Simulation Action 1`] = `
+Object {
+  "type": "START",
+}
+`;
+
+exports[`Grid Action Creator Functions Action Shapes Stop Life Simulation Action 1`] = `
+Object {
+  "type": "STOP",
+}
+`;
+
+exports[`Grid Action Creator Functions Action Shapes Toggle Tile Action 1`] = `
+Object {
+  "type": "TOGGLE_TILE",
+  "x": 2,
+  "y": 2,
+}
+`;
